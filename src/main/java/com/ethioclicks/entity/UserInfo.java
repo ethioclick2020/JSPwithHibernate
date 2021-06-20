@@ -31,31 +31,31 @@ public class UserInfo {
 		return id;
 	}
 	public void setId(int id) {
-		id = id;
+		this.id = id;
 	}
 	public String getFirstName() {
 		return firstName;
 	}
 	public void setFirstName(String firstName) {
-		firstName = firstName;
+		this.firstName = firstName;
 	}
 	public String getLastName() {
 		return lastName;
 	}
 	public void setLastName(String lastName) {
-		lastName = lastName;
+		this.lastName = lastName;
 	}
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
-		email = email;
+		this.email = email;
 	}
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
-		password = password;
+		this.password = password;
 	}
 	public Timestamp getTimeStamp() {
 		return timeStamp;
@@ -63,6 +63,8 @@ public class UserInfo {
 	public void setTimeStamp(Timestamp timeStamp) {
 		this.timeStamp = timeStamp;
 	}
+	
+	
 	
 
 }

@@ -6,6 +6,7 @@
 <%@page import="org.hibernate.Session"%>
 <%@page import="org.hibernate.cfg.Configuration"%>
 <%@ page import="com.ethioclicks.entity.StudentInfo"%>
+<%@ page import="com.ethioclicks.entity.Department"%>
 
 <!DOCTYPE html>
 <html>
@@ -54,17 +55,17 @@
 			<th>Registration Date</th>
 		</tr>
 		<%
-		List<StudentInfo> listOfStudent = (List<StudentInfo>)request.getSession().getAttribute("List");
-		for (StudentInfo s: listOfStudent){
+        List<StudentInfo> listOfStudent = (List<StudentInfo>)request.getSession().getAttribute("List");
+		for (StudentInfo student: listOfStudent){
 		%>
 		<tr>
-			<td><%= s.getId() %></td>
-			<td><%= s.getFirstName() %></td>
-			<td><%= s.getLastName() %></td>
-			<td><%= s.getGender() %></td>
-			<td><%= s.getDepartment() %></td>
-			<td><%= s.getBatch() %></td>
-			<td><%= s.getTimeStamp() %></td>
+			<td><%= student.getId() %></td>
+			<td><%= student.getFirstName() %></td>
+			<td><%= student.getLastName() %></td>
+			<td><%= student.getGender() %></td>
+			<td><%= student.getDepartment().getDepartmentName() %></td>
+			<td><%= student.getBatch() %></td>
+			<td><%= student.getTimeStamp() %></td>
 		</tr>
 		<%
 		}
@@ -72,7 +73,7 @@
 
 	</table>
 	<!-- ======= footer ======= -->
-	<footer style="margin-top: 50vh;"> All Right Reserved. </footer>
+	<footer style="margin-top: 50vh;"> © Copyright 2021 Ethio Clicks . </footer>
 	<!-- ======= End footer ======= -->
 </body>
 </html>

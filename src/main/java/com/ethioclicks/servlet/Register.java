@@ -2,7 +2,6 @@ package com.ethioclicks.servlet;
 
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -11,58 +10,46 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-
+import com.ethioclicks.DAO.UserDao;
+import com.ethioclicks.DAOImpl.UserDaoImpl;
 import com.ethioclicks.entity.UserInfo;
+
 
 /**
  * Servlet implementation class Register
  */
-//@WebServlet("/Register")
+
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		PrintWriter out = response.getWriter();
 		try {
-			System.out.println("Working");
 			UserInfo user = new UserInfo();
+			UserDao userDao = new UserDaoImpl();
 			Date date = new Date();
 			Timestamp timeStamp = new Timestamp(date.getTime());
-			String fname = request.getParameter("fname");
-			user.setFirstName(fname);
-			String lname = request.getParameter("lname");
-			user.setLastName(lname);
+			String firstName = request.getParameter("fname");
+			user.setFirstName(firstName);
+			String lastName = request.getParameter("lname");
+			user.setLastName(lastName);
 			String email = request.getParameter("email");
 			user.setEmail(email);
 			request.getSession().setAttribute("uname",email);
-			String pw = request.getParameter("password");
-			user.setPassword(pw);
+			String password = request.getParameter("password");
+			user.setPassword(password);
 			//set the value of timeStamp
 			user.setTimeStamp(timeStamp);
 
-			//Config
-			Configuration conf = new Configuration();
-			conf.configure("hibernate.cfg.xml");
-
-			Session session = conf.buildSessionFactory().openSession();
-			Transaction transaction = session.beginTransaction();
 			//Save to DB
-			session.save(user);
-			
-			transaction.commit();
-			session.close();
-
-			System.out.println("Done");
-			
+			userDao.saveUser(user);
+				
 			request.getSession().setAttribute("uname",email);
    		    response.sendRedirect("Home.jsp");
+   		    
 		}catch(Exception e){
-			out.println("Error: "+e.getMessage());
+			System.out.println("Error: "+e.getMessage());
 		}
 		
 	}

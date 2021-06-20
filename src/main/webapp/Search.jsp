@@ -46,7 +46,7 @@ tr:nth-child(even) {
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a class="nav-link" href="Home.jsp">Home</a></li>
-				<li class="nav-item"><a class="nav-link"href="RegisterStudent.jsp">Register Student</a></li>
+				<li class="nav-item"><a class="nav-link"href="/HibernateExampleWithJSP/ViewDepartment">Register Student</a></li>
 				<li class="nav-item"><a class="nav-link" href="/HibernateExampleWithJSP/ViewStudent">View Student</a></li>
 				<li class="nav-item active"><a class="nav-link" href="/HibernateExampleWithJSP/SearchStudent">Search</a></li>
 				<li class="nav-item"><a class="nav-link" href="Logout.jsp">Logout</a></li>
@@ -78,7 +78,7 @@ tr:nth-child(even) {
 			<td><%= s.getFirstName() %></td>
 			<td><%= s.getLastName() %></td>
 			<td><%= s.getGender() %></td>
-			<td><%= s.getDepartment() %></td>
+			<td><%= s.getDepartment().getDepartmentName() %></td>
 			<td><%= s.getBatch() %></td>
 			<td><%= s.getTimeStamp() %></td>
 		</tr>	
@@ -89,7 +89,7 @@ tr:nth-child(even) {
 </table>
 </form>	
 	<footer style="margin-top:50vh;">
-	  All Right Reserved.
+	  © Copyright 2021 Ethio Clicks 
 	</footer>
 </body>
 </html>

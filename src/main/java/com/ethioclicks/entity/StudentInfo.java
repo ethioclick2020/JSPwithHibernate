@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,8 +22,6 @@ public class StudentInfo {
 	private String lastName;
     @Column(name = "Gender")
 	private String gender;
-    @Column(name = "Department")
-	private String department;
     @Column(name = "Batch")
 	private String batch;
     @Column(name = "Description")
@@ -33,49 +32,51 @@ public class StudentInfo {
 		return id;
 	}
 	public void setId(int id) {
-		id = id;
+		this.id = id;
 	}
 	public String getFirstName() {
 		return firstName;
 	}
 	public void setFirstName(String firstName) {
-		firstName = firstName;
+		this.firstName = firstName;
 	}
 	public String getLastName() {
 		return lastName;
 	}
 	public void setLastName(String lastName) {
-		lastName = lastName;
+		this.lastName = lastName;
 	}
 	public String getGender() {
 		return gender;
 	}
 	public void setGender(String gender) {
-		gender = gender;
-	}
-	public String getDepartment() {
-		return department;
-	}
-	public void setDepartment(String department) {
-		department = department;
+		this.gender = gender;
 	}
 	public String getBatch() {
 		return batch;
 	}
 	public void setBatch(String batch) {
-		batch = batch;
+		this.batch = batch;
 	}
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
-		description = description;
+		this.description = description;
 	}
 	public Timestamp getTimeStamp() {
 		return timeStamp;
 	}
 	public void setTimeStamp(Timestamp timeStamp) {
 		this.timeStamp = timeStamp;
+	}
+	@ManyToOne
+	Department department;
+	public Department getDepartment() {
+		return department;
+	}
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 	
 	

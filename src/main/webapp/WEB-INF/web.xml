@@ -49,4 +49,22 @@
   <url-pattern>/RegisterStudentHandler</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  <servlet-name>ViewDepartment</servlet-name>
+  <servlet-class>com.ethioclicks.servlet.ViewDepartment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ViewDepartment</servlet-name>
+  <url-pattern>/ViewDepartment</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>AddDepartment</servlet-name>
+  <servlet-class>com.ethioclicks.servlet.AddDepartment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>AddDepartment</servlet-name>
+  <url-pattern>/AddDepartment</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

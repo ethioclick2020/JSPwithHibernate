@@ -1,3 +1,5 @@
+<%@page import="com.ethioclicks.DAOImpl.UserDaoImpl"%>
+<%@page import="com.ethioclicks.DAOImpl.StudentDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="org.hibernate.Transaction"%>
@@ -27,9 +29,8 @@
 		</button>
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="RegisterStudent.jsp">Register Student</a></li>
+				<li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="/HibernateExampleWithJSP/ViewDepartment">Register Student</a></li>
 				<li class="nav-item"><a class="nav-link" href="/HibernateExampleWithJSP/ViewStudent">View Student</a></li>
 				<li class="nav-item"><a class="nav-link" href="/HibernateExampleWithJSP/SearchStudent">Search</a></li>
 				<li class="nav-item"><a class="nav-link" href="Logout.jsp">Logout</a>
@@ -64,14 +65,9 @@
 					<h2 class="timer count-title count-number">
 					<%
 					try {
-			        	Configuration conf = new Configuration();
-			        	conf.configure("hibernate.cfg.xml");
-			        	Session s = conf.buildSessionFactory().openSession();
-			        	Transaction t = s.beginTransaction();
-			        	long count = (long) s.createQuery("SELECT COUNT(ui) FROM UserInfo ui").getSingleResult();;
-			            out.print(count); 	
-			            t.commit();
-						s.close();
+						UserDaoImpl userDaoImpl = new UserDaoImpl();
+						long count = userDaoImpl.countUser();
+  			            out.print(count); 	
 			        } catch (Exception e) {
 			            out.print("Error:" + e.getMessage());
 			        } 
@@ -86,14 +82,9 @@
 					<h2 class="timer count-title count-number">
 					<%
 					try {
-			        	Configuration conf = new Configuration();
-			        	conf.configure("hibernate.cfg.xml");
-			        	Session s = conf.buildSessionFactory().openSession();
-			        	Transaction t = s.beginTransaction();
-			        	long count = (long) s.createQuery("SELECT COUNT(si) FROM StudentInfo si").getSingleResult();;
-			            out.print(count); 	
-			            t.commit();
-						s.close();
+						StudentDaoImpl studentDaoImpl = new StudentDaoImpl();
+						long count = studentDaoImpl.countStudent();
+  			            out.print(count); 	
 			        } catch (Exception e) {
 			            out.print("Error:" + e.getMessage());
 			        } 
@@ -107,7 +98,7 @@
 		<p id="menu">Menu:</p>
 		<hr>
 		<ul id="ulist">
-			<li class="lBtn"><a href="RegisterStudent.jsp">Register Student</a></li>
+			<li class="lBtn"><a href="/HibernateExampleWithJSP/ViewDepartment">Register Student</a></li>
 			<li class="lBtn"><a href="/HibernateExampleWithJSP/ViewStudent">View Student</a></li>
 			<li class="lBtn"><a href="/HibernateExampleWithJSP/SearchStudent">Search</a></li>
 			<li class="lBtn"><a href="Logout.jsp">Logout</a></li>
@@ -115,6 +106,6 @@
 	</div>
 	<br>
 	<br>
-	<footer style="margin-top: 35vh;"> All Right Reserved </footer>
+	<footer style="margin-top: 35vh;"> © Copyright 2021 Ethio Clicks  </footer>
 </body>
 </html>
