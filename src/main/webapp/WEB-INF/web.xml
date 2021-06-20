@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>HibernateExampleWithJSP</display-name>
+  <welcome-file-list>
+      <welcome-file>Login.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+  <servlet-name>ViewStudent</servlet-name>
+  <servlet-class>com.ethioclicks.servlet.ViewStudent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ViewStudent</servlet-name>
+  <url-pattern>/ViewStudent</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>SearchStudent</servlet-name>
+  <servlet-class>com.ethioclicks.servlet.SearchStudent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>SearchStudent</servlet-name>
+  <url-pattern>/SearchStudent</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>LoginHandler</servlet-name>
+  <servlet-class>com.ethioclicks.servlet.LoginHandler</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>LoginHandler</servlet-name>
+  <url-pattern>/LoginHandler</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>Register</servlet-name>
+  <servlet-class>com.ethioclicks.servlet.Register</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Register</servlet-name>
+  <url-pattern>/Register</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>RegisterStudentHandler</servlet-name>
+  <servlet-class>com.ethioclicks.servlet.RegisterStudentHandler</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>RegisterStudentHandler</servlet-name>
+  <url-pattern>/RegisterStudentHandler</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>ViewDepartment</servlet-name>
+  <servlet-class>com.ethioclicks.servlet.ViewDepartment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ViewDepartment</servlet-name>
+  <url-pattern>/ViewDepartment</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>AddDepartment</servlet-name>
+  <servlet-class>com.ethioclicks.servlet.AddDepartment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>AddDepartment</servlet-name>
+  <url-pattern>/AddDepartment</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
